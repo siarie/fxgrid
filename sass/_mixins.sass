@@ -1,0 +1,25 @@
+@mixin media_query($breakpoint)
+  @if $breakpoint == 0
+    @content
+  @else 
+    @media screen and ( min-width: $breakpoint * 1px )
+      @content
+
+@mixin create_grid($cols, $breakpoint)
+
+  @each $mod, $bp in $breakpoint
+    @include media_query($bp)
+
+      @for $i from 1 through $cols
+        &.#{$mod}#{$i}
+          $_width:  ( 100 / ( $cols / $i ) ) * 1%
+          flex: 0 0 $_width
+          -ms-flex: 0 0 $_width
+          max-width: $_width
+          
+       
+  
+
+     
+
+        

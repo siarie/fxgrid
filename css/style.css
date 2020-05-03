@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #2E3440;
+  text-align: left;
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+figure, pre, blockquote, ol,
+ul, p {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+
+h2 {
+  font-size: 3.2rem;
+}
+
+h3 {
+  font-size: 2.8rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+h6 {
+  font-size: 1.6rem;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+  margin-bottom: 0;
+  padding-left: 2.4rem;
+}
+
+ul, ol {
+  padding-left: 0;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  bottom: -0.5em;
+}
+
+a {
+  color: #0084ff;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:hover {
+  color: #0011ff;
+}
+a:focus {
+  outline: 0;
+}
+
+pre,
+code {
+  font-family: monospace, monospace;
+  font-size: 1.4rem;
+}
+
+img,
+video {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+td:not([align]),
+th:not([align]) {
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cantarell", sans-serif;
+  font-size: 1.6rem;
+  background-color: #F7F7F7;
+}
+
+section {
+  width: 100%;
+  padding: 20px 0;
+}
+section:nth-child(2n+0) {
+  background: #e4e4e4;
+}
+section.header {
+  background: #fff;
+  box-shadow: inset 0 -4px rgba(0, 0, 0, 0.2);
+}
+
+.box {
+  background-color: #FF5555;
+  text-align: center;
+  height: 24px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.center {
+  text-align: center;
+}
+
+pre,
+code {
+  font-family: monospace, monospace;
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #636363;
+}
+pre .comment,
+code .comment {
+  font-style: italic;
+  color: #a7a7a7;
+}
+
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  padding: 16px;
+  box-shadow: inset 4px 0 rgba(255, 85, 85, 0.5);
+}
+
+code {
+  padding: 4px;
+}
+
+footer {
+  padding: 3rem 0;
+}
+footer p {
+  margin: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
