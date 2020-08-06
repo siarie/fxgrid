@@ -1,0 +1,19 @@
+{
+  "name": "snowmilk",
+  "version": "1.0.0",
+  "description": "HTML Blog Template",
+  "main": "index.js",
+  "author": "Sri Aspari",
+  "license": "MIT",
+  "scripts": {
+    "watch": "sass sass/main.sass css/style.css --watch",
+    "grid": "sass sass/grid.sass css/fxgrid.css",
+    "gridmin": "sass --style=compressed sass/grid.sass css/fxgrid.min.css",
+    "style": "sass sass/main.sass css/style.css"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.14.0",
+    "sass": "^1.26.3"
+  }
+}
