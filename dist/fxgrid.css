@@ -1,0 +1,120 @@
+.fxgrid,
+.column {
+  box-sizing: border-box;
+}
+
+.fxgrid {
+  --fxgrid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-right: calc(var(--fxgrid-gap) / 2 * (-1));
+  margin-left: calc(var(--fxgrid-gap) / 2 * (-1));
+}
+
+.fxgrid .column {
+  width: 100%;
+  padding: calc(var(--fxgrid-gap) / 2);
+}
+
+@media (min-width: 20em) {
+  .fxgrid.absolute .one.column {
+    flex: 0 0 calc(100% / 12);
+    max-width: calc(100% / 12);
+  }
+  .fxgrid.absolute .two.column {
+    flex: 0 0 calc(100% / 6);
+    max-width: calc(100% / 6);
+  }
+  .fxgrid.absolute .three.column {
+    flex: 0 0 calc(100% / 4);
+    max-width: calc(100% / 4);
+  }
+  .fxgrid.absolute .four.column {
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+  }
+  .fxgrid.absolute .five.column {
+    flex: 0 0 calc(100% / 2.4);
+    max-width: calc(100% / 2.4);
+  }
+  .fxgrid.absolute .six.column {
+    flex: 0 0 calc(100% / 2);
+    max-width: calc(100% / 2);
+  }
+  .fxgrid.absolute .seven.column {
+    flex: 0 0 calc(100% / 1.71429);
+    max-width: calc(100% / 1.71429);
+  }
+  .fxgrid.absolute .eight.column {
+    flex: 0 0 calc(100% / 1.5);
+    max-width: calc(100% / 1.5);
+  }
+  .fxgrid.absolute .nine.column {
+    flex: 0 0 calc(100% / 1.33333);
+    max-width: calc(100% / 1.33333);
+  }
+  .fxgrid.absolute .ten.column {
+    flex: 0 0 calc(100% / 1.2);
+    max-width: calc(100% / 1.2);
+  }
+  .fxgrid.absolute .eleven.column {
+    flex: 0 0 calc(100% / 1.09091);
+    max-width: calc(100% / 1.09091);
+  }
+  .fxgrid.absolute .twelve.column {
+    flex: 0 0 calc(100% / 1);
+    max-width: calc(100% / 1);
+  }
+}
+
+@media (min-width: 40em) {
+  .fxgrid .one.column {
+    flex: 0 0 calc(100% / 12);
+    max-width: calc(100% / 12);
+  }
+  .fxgrid .two.column {
+    flex: 0 0 calc(100% / 6);
+    max-width: calc(100% / 6);
+  }
+  .fxgrid .three.column {
+    flex: 0 0 calc(100% / 4);
+    max-width: calc(100% / 4);
+  }
+  .fxgrid .four.column {
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+  }
+  .fxgrid .five.column {
+    flex: 0 0 calc(100% / 2.4);
+    max-width: calc(100% / 2.4);
+  }
+  .fxgrid .six.column {
+    flex: 0 0 calc(100% / 2);
+    max-width: calc(100% / 2);
+  }
+  .fxgrid .seven.column {
+    flex: 0 0 calc(100% / 1.71429);
+    max-width: calc(100% / 1.71429);
+  }
+  .fxgrid .eight.column {
+    flex: 0 0 calc(100% / 1.5);
+    max-width: calc(100% / 1.5);
+  }
+  .fxgrid .nine.column {
+    flex: 0 0 calc(100% / 1.33333);
+    max-width: calc(100% / 1.33333);
+  }
+  .fxgrid .ten.column {
+    flex: 0 0 calc(100% / 1.2);
+    max-width: calc(100% / 1.2);
+  }
+  .fxgrid .eleven.column {
+    flex: 0 0 calc(100% / 1.09091);
+    max-width: calc(100% / 1.09091);
+  }
+  .fxgrid .twelve.column {
+    flex: 0 0 calc(100% / 1);
+    max-width: calc(100% / 1);
+  }
+}

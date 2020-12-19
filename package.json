@@ -1,19 +1,29 @@
 {
-  "name": "snowmilk",
+  "name": "fxgrid",
   "version": "1.0.0",
-  "description": "HTML Blog Template",
+  "description": "Minimalist Flexbox grid system",
   "main": "index.js",
   "author": "Sri Aspari",
   "license": "MIT",
   "scripts": {
-    "watch": "sass sass/main.sass css/style.css --watch",
-    "grid": "sass sass/grid.sass css/fxgrid.css",
-    "gridmin": "sass --style=compressed sass/grid.sass css/fxgrid.min.css",
-    "style": "sass sass/main.sass css/style.css"
+    "build": "gulp"
   },
   "devDependencies": {
-    "live-server": "^1.2.1",
-    "node-sass": "^4.14.1",
-    "sass": "^1.27.0"
-  }
+    "autoprefixer": "^10.1.0",
+    "cssnano": "^4.1.10",
+    "del": "^6.0.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.2.1"
+  },
+  "browserslist": [
+    ">1%",
+    "last 8 versions"
+  ]
 }
