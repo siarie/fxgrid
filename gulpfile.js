@@ -11,7 +11,8 @@ const sourcemaps = require('gulp-sourcemaps');
 
 const pkg = require('./package.json');
 
-gulp.task('clean', () => del('./dist/**', { force: true }));
+gulp.task('clean:dist', () => del('./dist/**', { force: true }));
+gulp.task('clean:docs', () => del('./docs/**', { force: true }));
 
 gulp.task('style', () => {
   // eslint-disable-next-line global-require
@@ -28,7 +29,7 @@ gulp.task('style', () => {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('docs', () => {
+gulp.task('makedocs', () => {
   // eslint-disable-next-line global-require
   const postcssPlugins = [autoprefixer(), cssnano()];
   return gulp
@@ -38,13 +39,17 @@ gulp.task('docs', () => {
     .pipe(rename({ basename: 'docs', suffix: '.min' }))
     .pipe(postcss(postcssPlugins))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./docs'))
-    .pipe(
-      gulp
-        .src(['./src/docs/index.html', './src/docs/favicon.ico'])
-        .pipe(gulp.dest('./docs')),
-    );
+    .pipe(gulp.dest('./docs'));
 });
 
-gulp.task('default', gulp.series(['clean', 'style']));
-// gulp.task('docs', gulp.series());
+gulp.task('copy', () => {
+  const listFile = [
+    './src/docs/index.html',
+    './src/docs/favicon.ico',
+    './dist/fxgrid.min.*',
+  ];
+  return gulp.src(listFile).pipe(gulp.dest('./docs'));
+});
+
+gulp.task('default', gulp.series(['clean:dist', 'style']));
+gulp.task('docs', gulp.series(['clean:docs', 'makedocs', 'copy']));
