@@ -6,7 +6,8 @@
   "author": "Sri Aspari",
   "license": "MIT",
   "scripts": {
-    "build": "gulp"
+    "build:fxgrid": "gulp",
+    "build:docs": "gulp docs"
   },
   "devDependencies": {
     "autoprefixer": "^10.1.0",
