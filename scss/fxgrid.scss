@@ -1,0 +1,68 @@
+@charset 'UTF-8';
+
+/*!
+ * fxgrid v0.1.0 (https://github.com/siarie/fxgrid)
+ * Licenced under MIT
+*/
+
+$columns: (
+  'mobile': (
+    4,
+    0,
+  ),
+  'tablet': (
+    10,
+    768,
+  ),
+  'laptop': (
+    12,
+    960,
+  ),
+  'desktop': (
+    12,
+    1200,
+  ),
+);
+
+@mixin breakpoint($bp) {
+  @if ($bp != 0) {
+    @media (min-width: $bp * 1px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.fxgrid,
+[class^='col:'] {
+  box-sizing: border-box;
+}
+
+.fxgrid,
+.row {
+  --fxgrid-gap: 0.5rem;
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: {
+    right: calc(var(--fxgrid-gap) * (-1));
+    left: calc(var(--fxgrid-gap) * (-1));
+  }
+}
+
+@each $modifier, $cols in $columns {
+  $col: nth($cols, 1);
+  $bp: nth($cols, 2);
+  @include breakpoint($bp) {
+    @for $i from 1 through $col {
+      .col\:#{$i}\@#{$modifier} {
+        $colWidth: ($col / $i);
+        padding: calc(var(--fxgrid-gap));
+        flex-basis: 100 / ($col / $i) * 1%;
+        max-width: 100 / ($col / $i) * 1%;
+      }
+    }
+  }
+}
