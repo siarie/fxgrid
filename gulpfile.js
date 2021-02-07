@@ -1,55 +1,38 @@
+/* eslint-disable no-multi-spaces */
+/* eslint-disable comma-dangle */
 const gulp = require('gulp');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const sass = require('gulp-dart-sass');
+const sourcemap = require('gulp-sourcemaps');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
 const del = require('del');
 
-// Load Gulp Plugins
-const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const postcss = require('gulp-postcss');
-const sourcemaps = require('gulp-sourcemaps');
+function clean() {
+  return del('./css/**', { force: true });
+}
 
-const pkg = require('./package.json');
-
-gulp.task('clean:dist', () => del('./dist/**', { force: true }));
-gulp.task('clean:docs', () => del('./docs/**', { force: true }));
-
-gulp.task('style', () => {
-  // eslint-disable-next-line global-require
-  const postcssPlugins = [autoprefixer(), cssnano()];
+function styles() {
   return gulp
-    .src('src/main.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(rename({ basename: pkg.name }))
-    .pipe(gulp.dest('./dist'))
-    .pipe(postcss(postcssPlugins))
-    .pipe(rename({ basename: pkg.name, suffix: '.min' }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist'));
-});
+    .src('scss/fxgrid.scss')
+    .pipe(sourcemap.init())
+    .pipe(
+      sass({
+        includePaths: ['./node_modules'],
+        outputStyle: 'expanded',
+      }).on('error', sass.logError)
+    )
+    .pipe(gulp.dest('./css'))
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemap.write('.'))
+    .pipe(gulp.dest('./css'));
+}
 
-gulp.task('makedocs', () => {
-  // eslint-disable-next-line global-require
-  const postcssPlugins = [autoprefixer(), cssnano()];
-  return gulp
-    .src('src/docs/docs.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(rename({ basename: 'docs', suffix: '.min' }))
-    .pipe(postcss(postcssPlugins))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./docs'));
-});
+function watch() {
+  gulp.watch(['scss/fxgrid.scss'], gulp.series(clean, styles));
+}
 
-gulp.task('copy', () => {
-  const listFile = [
-    './src/docs/index.html',
-    './src/docs/favicon.ico',
-    './dist/fxgrid.min.*',
-  ];
-  return gulp.src(listFile).pipe(gulp.dest('./docs'));
-});
-
-gulp.task('default', gulp.series(['clean:dist', 'style']));
-gulp.task('docs', gulp.series(['clean:docs', 'makedocs', 'copy']));
+gulp.task('build', gulp.series(clean, styles));
+gulp.task('watch', watch);
