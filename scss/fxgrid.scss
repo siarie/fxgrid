@@ -5,6 +5,7 @@
  * Licenced under MIT
 */
 
+$defaultColSize: 12;
 $columns: (
   'mobile': (
     4,
@@ -55,10 +56,18 @@ $columns: (
 @each $modifier, $cols in $columns {
   $col: nth($cols, 1);
   $bp: nth($cols, 2);
+
+  @for $i from 1 through $defaultColSize {
+    .col\:#{$i} {
+      padding: calc(var(--fxgrid-gap));
+      flex-basis: 100 / ($defaultColSize / $i) * 1%;
+      max-width: 100 / ($defaultColSize / $i) * 1%;
+    }
+  }
+
   @include breakpoint($bp) {
     @for $i from 1 through $col {
       .col\:#{$i}\@#{$modifier} {
-        $colWidth: ($col / $i);
         padding: calc(var(--fxgrid-gap));
         flex-basis: 100 / ($col / $i) * 1%;
         max-width: 100 / ($col / $i) * 1%;
