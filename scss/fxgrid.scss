@@ -36,12 +36,11 @@ $columns: (
 }
 
 .fxgrid,
-[class^='col:'] {
+[class^="fxgrid"] {
   box-sizing: border-box;
 }
 
-.fxgrid,
-.row {
+.fxgrid {
   --fxgrid-gap: 0.5rem;
   display: flex;
   flex: 0 1 auto;
@@ -58,7 +57,7 @@ $columns: (
   $bp: nth($cols, 2);
 
   @for $i from 1 through $defaultColSize {
-    .col\:#{$i} {
+    .fxgrid__col-#{$i} {
       padding: calc(var(--fxgrid-gap));
       flex-basis: 100 / ($defaultColSize / $i) * 1%;
       max-width: 100 / ($defaultColSize / $i) * 1%;
@@ -67,7 +66,7 @@ $columns: (
 
   @include breakpoint($bp) {
     @for $i from 1 through $col {
-      .col\:#{$i}\@#{$modifier} {
+      .fxgrid__col-#{$i}--#{$modifier} {
         padding: calc(var(--fxgrid-gap));
         flex-basis: 100 / ($col / $i) * 1%;
         max-width: 100 / ($col / $i) * 1%;
