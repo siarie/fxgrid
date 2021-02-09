@@ -1,6 +1,6 @@
 {
   "name": "fxgrid",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flexbox grid system",
   "scss": "scss/fxgrid.scss",
   "main": "index.js",
