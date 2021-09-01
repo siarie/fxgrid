@@ -1,0 +1,65 @@
+@charset 'utf-8';
+/*!
+ * fxgrid v1.0.0 (https://github.com/siarie/fxgrid)
+ * Copyright 2020-2021 Sri Aspari (https://siarie.me)
+ * Licensed under MIT (https://github.com/siarie/fxgrid/blob/main/LICENSE)
+ */
+
+.row, .fxgrid, .col {
+  box-sizing: border-box;
+}
+
+.row, .fxgrid {
+  --fx-gaps: .5rem;
+  --fx-colsize: 12;
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--fx-gaps) * (-1));
+
+  .col {
+    --fx-colwidth: calc(100% / (var(--fx-colsize) / var(--fx-cols, 12)));
+    flex-basis: var(--fx-colwidth);
+    max-width: var(--fx-colwidth);
+    padding: var(--fx-gaps);
+  }
+
+  @for $i from 1 through 12 {
+    [xs="#{$i}"] {--fx-cols: #{$i} !important;}
+  }
+
+  // small device: phones -> 0px or higher (719px)
+  @media (min-width: 560px) {
+    .col {--fx-cols: 6;}
+
+    @for $i from 1 through 12 {
+      [sm="#{$i}"] {--fx-cols: #{$i} !important;}
+    }
+  }
+
+  // tablet -> 720px or higher (959px)
+  @media (min-width: 720px) {
+    .col {--fx-cols: 4;}
+
+    @for $i from 1 through 12 {
+      [md="#{$i}"] {--fx-cols: #{$i} !important;}
+    }
+  }
+
+  // laptop / desktop -> 960px or higher (1199px)
+  @media (min-width: 960px) {
+    .col {--fx-cols: 3;}
+
+    @for $i from 1 through 12 {
+      [lg="#{$i}"] { --fx-cols: #{$i} !important;}
+    }
+  }
+
+  // large desktop -> 1200px or higher (...)
+  @media (min-width: 1200px) {
+    .col {--fx-cols: 2;}
+
+    @for $i from 1 through 12 {
+      [xl="#{$i}"] {--fx-cols: #{$i};}
+    }
+  }
+}
