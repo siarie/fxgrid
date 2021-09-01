@@ -15,7 +15,7 @@ offset, alignment, and reordering features like [other][bootstrap]
 
 Installation method available:
 
-* [Download the latest release]()
+* [Download the latest release](https://github.com/siarie/fxgrid/releases)
 * Install via npm `npm i fxgrid` or use yarn `yarn add fxgrid`
 * Via CDN using [unpkg](https://unpkg.com/fxgrid@latest)
 
