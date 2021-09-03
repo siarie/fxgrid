@@ -2,9 +2,8 @@
 
 A simple CSS grid system based on flexbox.
 
-fxgrid only include basic grid functionality. That's mean there is no
-offset, alignment, and reordering features like [other][bootstrap]
-[flexbox][flexboxgrid] [system][bulma] do.
+fxgrid includes only basic grid functionality. That mean no offset, alignment, 
+and reordering features like [other][bootstrap] [flexbox][flexboxgrid] [system][bulma] do.
 
 [bootstrap]: https://getbootstrap.com/docs/5.1/layout/columns/
 [flexboxgrid]: https://flexboxgrid.com
